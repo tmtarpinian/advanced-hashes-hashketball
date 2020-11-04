@@ -149,7 +149,6 @@ def shoe_size(name)
   end
 end
 
-
 def team_colors(team_name)
   game_hash.each do |status, team| 
       if team[:team_name] == team_name
@@ -178,13 +177,12 @@ def player_numbers(team_name)
   numbers
 end
 
-
 def player_stats(name)
   counter = 0
   game_hash.each do |status, team| 
     team[:players].each do |player|
       if player[:player_name] == name
-        return player[counter]
+        return team[:players][counter]
       end
       counter +=1
     end
