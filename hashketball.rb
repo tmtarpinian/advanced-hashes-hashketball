@@ -189,3 +189,32 @@ def player_stats(name)
     counter = 0
   end
 end
+
+def big_shoe_rebounds
+  shoe_size = 0
+  player_name = ""
+
+  game_hash.each do |status, team| 
+    team[:players].each do |player|
+      if player[:shoe] > shoe_size
+        shoe_size = player[:shoe]
+        player_name = player[:player_name]
+      end
+    end
+  end
+  #now utilizing a helper method
+  num_rebounds(player_name)
+end
+
+
+#helper method
+def num_rebounds(name)
+  game_hash.each do |status, team| 
+    team[:players].each do |player|
+      if player[:player_name] == name
+        return player[:rebounds]
+      end
+    end
+  end
+end
+
