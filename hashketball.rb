@@ -218,3 +218,20 @@ def num_rebounds(name)
   end
 end
 
+
+# Bonus Questions
+def most_points_scored
+  points = 0
+  player_name = ""
+
+  game_hash.each do |status, team| 
+    team[:players].each do |player|
+      if player[:points] > points
+        points = player[:points]
+        player_name = player[:player_name]
+      end
+    end
+  end
+  player_name
+end
+
