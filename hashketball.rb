@@ -165,3 +165,29 @@ def team_names
   end
   teams
 end
+
+def player_numbers(team_name)
+  numbers = []
+  game_hash.each do |status, team|
+    if team[:team_name] == team_name
+      team[:players].each do |player|
+        numbers << player[:number]
+      end
+    end
+  end
+  numbers
+end
+
+
+def player_stats(name)
+  counter = 0
+  game_hash.each do |status, team| 
+    team[:players].each do |player|
+      if player[:player_name] == name
+        return player[counter]
+      end
+      counter +=1
+    end
+    counter = 0
+  end
+end
