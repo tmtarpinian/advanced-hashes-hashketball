@@ -188,4 +188,38 @@ describe 'hashketball' do
 
   end
 
+#Custom Test written by Trevor
+
+describe '#most_points_scored' do
+
+  it '(Custom Test written by Trevor) returns the name of the team with the most points' do
+    expect(most_points_scored).to eq("Ben Gordon")
+  end
+
+end
+
+  describe '#winning_team' do
+
+    it '(Custom Test written by Trevor) returns the name of the team with the most points' do
+      expect(winning_team).to eq("Brooklyn Nets")
+    end
+
+  end
+
+  describe '#player_with_longest_name' do
+
+    it '(Custom Test written by Trevor) returns the name of the player with the longest name' do
+      expect(player_with_longest_name).to eq("Bismack Biyombo")
+    end
+
+  end
+
+  describe '#long_name_steals_a_ton?' do
+
+    it '(Custom Test written by Trevor) returns true or false if the player with the longest name also has the most steals' do
+      expect(long_name_steals_a_ton?).to eq(true)
+    end
+
+  end
+
 end

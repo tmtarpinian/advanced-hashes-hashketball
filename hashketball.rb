@@ -235,3 +235,58 @@ def most_points_scored
   player_name
 end
 
+def winning_team
+  home = 0
+  away = 0
+  game_hash.each do |status, team|
+    if home == 0
+      team[:players].each do |player|
+        home += player[:points]
+    end
+    elsif home != 0 && away == 0
+      team[:players].each do |player|
+        away += player[:points]
+      end
+    end
+  end
+  home > away ? game_hash[:home][:team_name] : game_hash[:away][:team_name]
+end
+
+
+def player_with_longest_name
+  length = 0
+  player_name = ""
+
+  game_hash.each do |status, team| 
+    team[:players].each do |player|
+      if player[:player_name].length > length
+        length = player[:player_name].length
+        player_name = player[:player_name]
+      end
+    end
+  end
+  player_name
+end
+
+# Super Bonus Question
+def long_name_steals_a_ton?
+  longest_name = player_with_longest_name
+  stealingest_player = most_steals
+  longest_name == stealingest_player
+end
+
+#helper method
+def most_steals
+  steals = 0
+  player_name = ""
+
+  game_hash.each do |status, team| 
+    team[:players].each do |player|
+      if player[:steals] > steals
+        steals = player[:steals]
+        player_name = player[:player_name]
+      end
+    end
+  end
+  player_name
+end
